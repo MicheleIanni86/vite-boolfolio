@@ -19,7 +19,7 @@ export default {
 
 <template>
   <AppHeader :title="title"></AppHeader>
-  <div class="container mt-5">
+  <div class="container mt-5 pb-5">
     <ProjectList></ProjectList>
   </div>
 </template>
