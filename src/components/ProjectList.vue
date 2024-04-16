@@ -33,7 +33,7 @@ export default {
     <nav aria-label="Page navigation example">
         <ul class="pagination">
 
-            <li class="page-item" :class="link.active ? 'active' : ''" v-for="link in pagination"
+            <li class="page-item" :class="{ active: link.active, disabled: !link.url, }" v-for="link in pagination"
                 @click="fetchProjects(link.url)">
                 <a class="page-link" href="#" v-html="link.label"></a>
             </li>
