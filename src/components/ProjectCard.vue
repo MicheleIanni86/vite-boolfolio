@@ -19,9 +19,18 @@ export default {
             <img :src="project.image ? project.image : 'https://www.salumianticacortepallavicina.it/wp-content/uploads/2019/10/no-image.jpg'"
                 class="card-img-top">
             <div class="card-body">
+                <span class="badge mb-2" :style="'background-color: ' + project.type.color">{{
+                    project.type.label
+                }}</span>
                 <h5 class="card-title">{{ project.title }}</h5>
                 <p class="card-text">{{ abstract }}</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+            </div>
+            <div class="card-footer">
+                <span class="badge me-2" :style="'background-color: ' + technology.color"
+                    v-for="technology in project.technologies">
+                    {{ technology.label }}
+                </span>
             </div>
         </div>
     </div>
