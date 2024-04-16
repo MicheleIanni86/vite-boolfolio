@@ -1,37 +1,26 @@
 <script>
-import axios from 'axios';
+
+import ProjectList from './components/ProjectList.vue';
+import AppHeader from './components/AppHeader.vue';
 export default {
   data() {
     return {
-      title: "Projects",
-      projects: [],
+      title: "PortFolio Projects",
+
 
     };
   },
 
-  created() {
-    axios.get('http://127.0.0.1:8000/api/projects').then((response) => {
-      this.projects = response.data.data;
-    });
-  }
+  components: { AppHeader, ProjectList },
+
 }
 
 </script>
 
 <template>
+  <AppHeader :title="title"></AppHeader>
   <div class="container mt-5">
-    <h1>{{ title }}</h1>
-
-    <div v-for="project in projects">
-      <ul>
-        <li><strong>ID: </strong>{{ project.id }}</li>
-        <li><strong>Titolo: </strong>{{ project.title }}</li>
-        <li><strong>Contenuto: </strong>{{ project.content }}</li>
-        <li><strong>Immagine: </strong>{{ project.image }}</li>
-      </ul>
-      <hr>
-    </div>
-
+    <ProjectList></ProjectList>
   </div>
 </template>
 
