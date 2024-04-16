@@ -3,13 +3,15 @@ import axios from 'axios';
 export default {
   data() {
     return {
-      title: "Ciao Mondo"
+      title: "Projects",
+      projects: [],
+
     };
   },
 
   created() {
     axios.get('http://127.0.0.1:8000/api/projects').then((response) => {
-      console.log(response.data);
+      this.projects = response.data.data;
     });
   }
 }
@@ -19,6 +21,17 @@ export default {
 <template>
   <div class="container mt-5">
     <h1>{{ title }}</h1>
+
+    <div v-for="project in projects">
+      <ul>
+        <li><strong>ID: </strong>{{ project.id }}</li>
+        <li><strong>Titolo: </strong>{{ project.title }}</li>
+        <li><strong>Contenuto: </strong>{{ project.content }}</li>
+        <li><strong>Immagine: </strong>{{ project.image }}</li>
+      </ul>
+      <hr>
+    </div>
+
   </div>
 </template>
 
